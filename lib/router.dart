@@ -1,0 +1,33 @@
+import 'package:go_router/go_router.dart';
+import 'package:travel_app_youtube/features/home/presentation/views/home_main.dart';
+import 'package:travel_app_youtube/features/onboarding/presentation/views/onboarding_view.dart';
+import 'package:travel_app_youtube/features/splash/presentation/views/splash_view.dart';
+
+class RouterConst {
+  static const String splash = 'splash';
+  static const String home = 'home';
+  static const String onboarding = 'onboarding';
+}
+
+class RouterConf {
+  static final GoRouter goRouter = GoRouter(
+    initialLocation: '/splash',
+    routes: [
+      GoRoute(
+        name: RouterConst.splash,
+        path: '/splash',
+        builder: (context, state) => const SplashView(),
+      ),
+      GoRoute(
+        name: RouterConst.home,
+        path: '/home',
+        builder: (context, state) => const HomeMain(),
+      ),
+      GoRoute(
+        name: RouterConst.onboarding,
+        path: '/onboarding',
+        builder: (context, state) => const OnboardingView(),
+      ),
+    ],
+  );
+}
