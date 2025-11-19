@@ -40,6 +40,6 @@ flutter:
     - assets/svg/
 
   fonts:
-    - family: geo
+    - family: display
       fonts:
-        - asset: assets/fonts/geo.ttf
+        - asset: assets/fonts/display.otf

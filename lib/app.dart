@@ -14,7 +14,7 @@ class _AppState extends State<App> {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       debugShowCheckedModeBanner: false,
-      theme: ThemeData(brightness: Brightness.light, fontFamily: 'geo'),
+      theme: ThemeData(brightness: Brightness.light, fontFamily: 'display'),
       darkTheme: ThemeData(brightness: Brightness.dark),
       builder: (context, child) {
         return ResponsiveSizer(

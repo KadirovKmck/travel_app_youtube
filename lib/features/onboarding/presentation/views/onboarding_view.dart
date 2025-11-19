@@ -56,8 +56,6 @@ class _OnboardingViewState extends State<OnboardingView> {
         curve: Curves.easeOut,
       );
     } else {
-      // здесь финиш онбординга
-      // поменяй '/home' на твой реальный роут
       context.go('/home');
     }
   }
