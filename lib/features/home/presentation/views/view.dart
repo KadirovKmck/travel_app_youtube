@@ -2,39 +2,42 @@ import 'package:flutter/material.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:scaffold_plus/scaffold_plus.dart';
 
-class View extends StatelessWidget {
-  const View({super.key});
+class ViewHomeIn extends StatelessWidget {
+  const ViewHomeIn({super.key});
 
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
 
     return ScaffoldPlus(
+      top: false,
       body: Center(
         child: Stack(
           children: [
             Positioned.fill(
-              child: Image.asset('assets/images/on3.png', fit: BoxFit.cover),
+              child: Image.asset('assets/images/house.png', fit: BoxFit.fill),
             ),
             Positioned(
               left: 24,
               right: 24,
-              top: 40,
+              top: 45,
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   _CircleIconButton(
                     icon: Icons.arrow_back_ios_new_rounded,
                     onTap: () => Navigator.of(context).pop(),
                   ),
-                  SizedBox(width: 25.w),
+
                   const Text(
-                    'View',
+                    'Map',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 20,
                       fontWeight: FontWeight.w600,
                     ),
                   ),
+                  SizedBox(width: 10.w),
                 ],
               ),
             ),

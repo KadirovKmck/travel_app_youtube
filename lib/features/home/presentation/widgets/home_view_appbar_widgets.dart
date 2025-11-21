@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class HomeViewAppBarWidgets extends StatelessWidget {
@@ -47,15 +48,20 @@ class HomeViewAppBarWidgets extends StatelessWidget {
                 ],
               ),
             ),
-            Container(
-              width: 10.w,
-              height: 7.h,
-              decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                border: Border.all(color: Color(0xFFFF7029)),
+            InkWell(
+              onTap: () {
+                context.push('/notification');
+              },
+              child: Container(
+                width: 10.w,
+                height: 7.h,
+                decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  border: Border.all(color: Color(0xFFFF7029)),
+                ),
+                padding: EdgeInsets.all(10.sp),
+                child: SvgPicture.asset('assets/svg/Notifications.svg'),
               ),
-              padding: EdgeInsets.all(10.sp),
-              child: SvgPicture.asset('assets/svg/Notifications.svg'),
             ),
           ],
         ),

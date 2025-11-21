@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:scaffold_plus/scaffold_plus.dart';
 
 class CalendarView extends StatelessWidget {
@@ -11,19 +12,19 @@ class CalendarView extends StatelessWidget {
 
     final items = const [
       _ScheduleItem(
-        image: 'assets/images/a1.png',
+        image: 'assets/images/а1.png',
         title: 'Niladri Reservoir',
         date: '26 January 2022',
         location: 'Tekergat, Sunamgnj',
       ),
       _ScheduleItem(
-        image: 'assets/images/a2.png',
+        image: 'assets/images/а2.png',
         title: 'High Rech Park',
         date: '26 January 2022',
         location: 'Zeero Point, Sylhet',
       ),
       _ScheduleItem(
-        image: 'assets/images/a3.png',
+        image: 'assets/images/а3.png',
         title: 'Darma Reservoir',
         date: '26 January 2022',
         location: 'Darma, Kuningan',
@@ -37,12 +38,11 @@ class CalendarView extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const SizedBox(height: 16),
-            // ─── AppBar ────────────────────────────────────────────────
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Row(
                 children: [
-                  const SizedBox(width: 40), // чтобы заголовок был по центру
+                  const SizedBox(width: 40),
                   const Expanded(
                     child: Center(
                       child: Text(
@@ -57,14 +57,15 @@ class CalendarView extends StatelessWidget {
                   ),
                   _roundIconButton(
                     icon: Icons.notifications_none_rounded,
-                    onTap: () {},
+                    onTap: () {
+                      context.push('/notification');
+                    },
                   ),
                 ],
               ),
             ),
             const SizedBox(height: 24),
 
-            // ─── Calendar card ─────────────────────────────────────────
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 24),
               child: Container(
@@ -86,7 +87,6 @@ class CalendarView extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    // header
                     Row(
                       children: [
                         const Text(
@@ -113,7 +113,6 @@ class CalendarView extends StatelessWidget {
                       ],
                     ),
                     const SizedBox(height: 16),
-                    // days row (упрощённо, статично)
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: const [

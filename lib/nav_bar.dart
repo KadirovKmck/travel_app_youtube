@@ -28,7 +28,6 @@ class _NavBarViewState extends State<NavBarView> {
   late final List<Widget> _pages = <Widget>[
     const HomeMain(),
     const CalendarView(),
-    const _StubPage(title: 'Search'),
     const _StubPage(title: 'Messages'),
     const ProfileView(),
   ];
@@ -44,7 +43,6 @@ class _NavBarViewState extends State<NavBarView> {
 
     final sideInset = isTablet ? 4.w : 5.w;
     final barHeight = isTablet ? 8.5.h : 8.0.h;
-    final centerSize = isTablet ? 7.2.h : 6.5.h;
     final blur = 18.0;
 
     return ScaffoldPlus(
@@ -61,107 +59,67 @@ class _NavBarViewState extends State<NavBarView> {
                 right: sideInset,
                 bottom: 2.2.h,
               ),
-              child: SizedBox(
-                height: barHeight + centerSize * 0.4,
-                child: Stack(
-                  alignment: Alignment.topCenter,
-                  children: [
-                    Positioned(
-                      left: 0,
-                      right: 0,
-                      bottom: 0,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(26),
-                        child: BackdropFilter(
-                          filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
-                          child: Container(
-                            height: barHeight,
-                            decoration: BoxDecoration(
-                              color: _barColor,
-                              borderRadius: BorderRadius.circular(26),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.black.withOpacity(0.07),
-                                  blurRadius: 16,
-                                  offset: const Offset(0, -2),
-                                ),
-                              ],
-                            ),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceAround,
-                              crossAxisAlignment: CrossAxisAlignment.center,
-                              children: [
-                                _BottomItem(
-                                  index: 0,
-                                  currentIndex: _index,
-                                  icon: CupertinoIcons.home,
-                                  label: 'Home',
-                                  activeColor: _activeColor,
-                                  inactiveColor: _inactiveColor,
-                                  onTap: _onItemTap,
-                                ),
-                                _BottomItem(
-                                  index: 1,
-                                  currentIndex: _index,
-                                  icon: CupertinoIcons.calendar,
-                                  label: 'calendar',
-                                  activeColor: _activeColor,
-                                  inactiveColor: _inactiveColor,
-                                  onTap: _onItemTap,
-                                ),
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(26),
+                child: BackdropFilter(
+                  filter: ImageFilter.blur(sigmaX: blur, sigmaY: blur),
+                  child: Container(
+                    height: barHeight,
+                    decoration: BoxDecoration(
+                      color: _barColor,
+                      borderRadius: BorderRadius.circular(26),
+                      boxShadow: [
+                        BoxShadow(
+                          color: Colors.black.withOpacity(0.07),
+                          blurRadius: 16,
+                          offset: const Offset(0, -2),
+                        ),
+                      ],
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        _BottomItem(
+                          index: 0,
+                          currentIndex: _index,
+                          icon: CupertinoIcons.home,
+                          label: 'Home',
+                          activeColor: _activeColor,
+                          inactiveColor: _inactiveColor,
+                          onTap: _onItemTap,
+                        ),
+                        _BottomItem(
+                          index: 1,
+                          currentIndex: _index,
+                          icon: CupertinoIcons.calendar,
+                          label: 'calendar',
+                          activeColor: _activeColor,
+                          inactiveColor: _inactiveColor,
+                          onTap: _onItemTap,
+                        ),
 
-                                _BottomItem(
-                                  index: 3,
-                                  currentIndex: _index,
-                                  icon: CupertinoIcons.chat_bubble_2,
-                                  label: 'Messages',
-                                  activeColor: _activeColor,
-                                  inactiveColor: _inactiveColor,
-                                  onTap: _onItemTap,
-                                ),
-                                _BottomItem(
-                                  index: 4,
-                                  currentIndex: _index,
-                                  icon: CupertinoIcons.person,
-                                  label: 'Profile',
-                                  activeColor: _activeColor,
-                                  inactiveColor: _inactiveColor,
-                                  onTap: _onItemTap,
-                                ),
-                              ],
-                            ),
-                          ),
+                        _BottomItem(
+                          index: 3,
+                          currentIndex: _index,
+                          icon: CupertinoIcons.chat_bubble_2,
+                          label: 'Messages',
+                          activeColor: _activeColor,
+                          inactiveColor: _inactiveColor,
+                          onTap: _onItemTap,
                         ),
-                      ),
-                    ),
-                    Positioned(
-                      top: 0,
-                      child: GestureDetector(
-                        onTap: () => _onItemTap(2),
-                        behavior: HitTestBehavior.opaque,
-                        child: Container(
-                          height: centerSize,
-                          width: centerSize,
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: _centerButtonColor,
-                            boxShadow: [
-                              BoxShadow(
-                                color: _centerButtonColor.withOpacity(0.5),
-                                blurRadius: 16,
-                                offset: const Offset(0, 6),
-                              ),
-                            ],
-                          ),
-                          child: const Icon(
-                            CupertinoIcons.search,
-                            color: Colors.white,
-                            size: 30,
-                          ),
+                        _BottomItem(
+                          index: 4,
+                          currentIndex: _index,
+                          icon: CupertinoIcons.person,
+                          label: 'Profile',
+                          activeColor: _activeColor,
+                          inactiveColor: _inactiveColor,
+                          onTap: _onItemTap,
                         ),
-                      ),
+                      ],
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),
