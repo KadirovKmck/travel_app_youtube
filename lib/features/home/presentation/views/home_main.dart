@@ -15,14 +15,15 @@ class _HomeMainState extends State<HomeMain> {
   @override
   Widget build(BuildContext context) {
     return ScaffoldPlus(
-      horizontal: 6.w,
       backgroundColor: Colors.white,
-      body: Column(
-        children: [
-          HomeViewAppBarWidgets(),
-          SizedBox(height: 3.h),
-          HomeViewBodyWidgets(),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          children: [
+            HomeViewAppBarWidgets(),
+            SizedBox(height: 3.h),
+            HomeViewBodyWidgets(),
+          ],
+        ),
       ),
     );
   }

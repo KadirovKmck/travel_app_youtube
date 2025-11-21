@@ -56,7 +56,7 @@ class _OnboardingViewState extends State<OnboardingView> {
         curve: Curves.easeOut,
       );
     } else {
-      context.go('/home');
+      context.go('/navbar');
     }
   }
 
