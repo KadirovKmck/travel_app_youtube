@@ -4,7 +4,16 @@ import 'package:go_router/go_router.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 class DestinationContainerWidget extends StatefulWidget {
-  const DestinationContainerWidget({super.key});
+  final String assets;
+  final String title;
+  final String locations;
+
+  const DestinationContainerWidget({
+    super.key,
+    required this.assets,
+    required this.title,
+    required this.locations,
+  });
 
   @override
   State<DestinationContainerWidget> createState() =>
@@ -43,7 +52,7 @@ class _DestinationContainerWidgetState
                   borderRadius: BorderRadius.circular(20),
                 ),
                 image: DecorationImage(
-                  image: AssetImage('assets/images/home1.png'),
+                  image: AssetImage(widget.assets),
                   fit: BoxFit.fill,
                 ),
               ),
@@ -66,7 +75,7 @@ class _DestinationContainerWidgetState
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        'Niladri Reservoir',
+                        widget.title,
                         style: TextStyle(
                           color: const Color(0xFF1B1E28),
                           fontSize: 18.sp,
@@ -98,7 +107,7 @@ class _DestinationContainerWidgetState
                       ),
                       SizedBox(width: 1.w),
                       Text(
-                        'Tekergat, Sunamgnj',
+                        widget.locations,
                         style: TextStyle(
                           color: const Color(0xFF7C838D),
                           fontSize: 15.sp,

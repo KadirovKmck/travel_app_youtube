@@ -4,9 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:scaffold_plus/scaffold_plus.dart';
-import 'package:travel_app_youtube/features/calendar/calendar_view.dart';
 
+import 'package:travel_app_youtube/features/calendar/calendar_view.dart';
 import 'package:travel_app_youtube/features/home/home.dart';
+import 'package:travel_app_youtube/features/messages/messages_view.dart';
 import 'package:travel_app_youtube/features/profile/profile_view.dart';
 
 class NavBarView extends StatefulWidget {
@@ -21,19 +22,20 @@ class _NavBarViewState extends State<NavBarView> {
 
   static const Color _bg = Color(0xFF0E1B2B);
 
-  static const Color _barColor = Colors.white;
-  static const Color _centerButtonColor = Color(0xFF45B5FF);
+  static const Color _barColor = Color.fromARGB(93, 255, 255, 255);
   static const Color _inactiveColor = Color(0xFF8C8F99);
   static const Color _activeColor = Color(0xFF45B5FF);
+
   late final List<Widget> _pages = <Widget>[
     const HomeMain(),
     const CalendarView(),
-    const _StubPage(title: 'Messages'),
+    const MessagesPage(),
     const ProfileView(),
   ];
 
   void _onItemTap(int i) {
     HapticFeedback.lightImpact();
+    if (i < 0 || i >= _pages.length) return;
     setState(() => _index = i);
   }
 
@@ -43,7 +45,7 @@ class _NavBarViewState extends State<NavBarView> {
 
     final sideInset = isTablet ? 4.w : 5.w;
     final barHeight = isTablet ? 8.5.h : 8.0.h;
-    final blur = 18.0;
+    const blur = 18.0;
 
     return ScaffoldPlus(
       top: false,
@@ -98,9 +100,8 @@ class _NavBarViewState extends State<NavBarView> {
                           inactiveColor: _inactiveColor,
                           onTap: _onItemTap,
                         ),
-
                         _BottomItem(
-                          index: 3,
+                          index: 2,
                           currentIndex: _index,
                           icon: CupertinoIcons.chat_bubble_2,
                           label: 'Messages',
@@ -109,7 +110,7 @@ class _NavBarViewState extends State<NavBarView> {
                           onTap: _onItemTap,
                         ),
                         _BottomItem(
-                          index: 4,
+                          index: 3,
                           currentIndex: _index,
                           icon: CupertinoIcons.person,
                           label: 'Profile',
@@ -173,23 +174,6 @@ class _BottomItem extends StatelessWidget {
               ),
             ),
           ],
-        ),
-      ),
-    );
-  }
-}
-
-class _StubPage extends StatelessWidget {
-  final String title;
-  const _StubPage({required this.title});
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Center(
-        child: Text(
-          title,
-          style: const TextStyle(color: Colors.white, fontSize: 22),
         ),
       ),
     );

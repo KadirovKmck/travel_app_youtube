@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
   void _startSplash() {
     Timer(const Duration(seconds: 3), () {
       if (!mounted) return;
-      context.go('/navbar');
+      context.go('/onboarding');
     });
   }
 

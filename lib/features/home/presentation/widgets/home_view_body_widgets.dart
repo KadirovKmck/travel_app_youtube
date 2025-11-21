@@ -8,6 +8,14 @@ class HomeViewBodyWidgets extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    List assets = [
+      'assets/images/home1.png',
+      'assets/images/home_one.png',
+      'assets/images/home_one.png',
+    ];
+
+    List locations = ['Tekergat, Sunamgnj', 'Darma, Kuningan', "Lemon Garden"];
+    List title = ['Niladri Reservoir', 'Darma Reservoir', 'Lemon Garden'];
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -60,7 +68,11 @@ class HomeViewBodyWidgets extends StatelessWidget {
             itemCount: 3,
             padding: EdgeInsetsGeometry.symmetric(horizontal: 6.w),
             itemBuilder: (context, index) {
-              return DestinationContainerWidget();
+              return DestinationContainerWidget(
+                assets: assets[index],
+                locations: locations[index],
+                title: title[index],
+              );
             },
           ),
         ),
