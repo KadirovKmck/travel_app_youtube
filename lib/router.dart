@@ -1,5 +1,7 @@
+import 'package:flutter/widgets.dart';
 import 'package:go_router/go_router.dart';
 import 'package:travel_app_youtube/features/home/presentation/views/home_main.dart';
+import 'package:travel_app_youtube/features/notification/notification_view.dart';
 import 'package:travel_app_youtube/features/onboarding/presentation/views/onboarding_view.dart';
 import 'package:travel_app_youtube/features/splash/presentation/views/splash_view.dart';
 
@@ -7,6 +9,7 @@ class RouterConst {
   static const String splash = 'splash';
   static const String home = 'home';
   static const String onboarding = 'onboarding';
+  static const String notification = 'notification';
 }
 
 class RouterConf {
@@ -27,6 +30,11 @@ class RouterConf {
         name: RouterConst.onboarding,
         path: '/onboarding',
         builder: (context, state) => const OnboardingView(),
+      ),
+      GoRoute(
+        name: RouterConst.notification,
+        path: '/notification',
+        builder: (context, state) => NotificationView(),
       ),
     ],
   );
